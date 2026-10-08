@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ma-Q Pizza — a melhor pizza da região desde 1987</title>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff6e8;--card:#fffdf8;--ink:#2b1710;--mute:#7a6254;--red:#d62a1b;--red2:#a81a0f;--green:#2f7d3b;--gold:#f4b223;--line:#f0dcc0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b0f0b;--card:#2a1812;--ink:#fff1de;--mute:#c9ab94;--red:#ff5a45;--red2:#d62a1b;--green:#6fcf7e;--line:#432a20}}
+:root[data-theme="dark"]{--bg:#1b0f0b;--card:#2a1812;--ink:#fff1de;--mute:#c9ab94;--red:#ff5a45;--red2:#d62a1b;--green:#6fcf7e;--line:#432a20}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Nunito,system-ui,sans-serif}
+h1,h2,h3{font-family:'Alfa Slab One',Georgia,serif;font-weight:400;margin:0;line-height:1.05}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--red);color:#fff}
+.bar{display:flex;align-items:center;gap:12px;height:62px}
+.logo{font:400 24px 'Alfa Slab One',serif;margin-right:auto}
+.pill{background:#fff;color:#2b1710;border-radius:99px;padding:8px 16px;font-weight:800;white-space:nowrap}
+.pill b{background:var(--red);color:#fff;border-radius:99px;padding:1px 8px;margin-left:6px;font-size:13px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:48px 0 40px}
+.hero h1{font-size:clamp(40px,7vw,76px);color:var(--red)}
+.hero p{font-size:18px;color:var(--mute);max-width:42ch}
+.seal{display:inline-block;background:var(--gold);color:#2b1710;font-weight:800;border-radius:99px;padding:5px 14px;margin-bottom:14px;transform:rotate(-3deg)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn{background:var(--red);color:#fff;border-radius:14px;padding:14px 24px;font-weight:800;font-size:17px;box-shadow:0 5px 0 var(--red2);transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translateY(4px);box-shadow:0 1px 0 var(--red2)}
+.btn.alt{background:var(--card);color:var(--ink);box-shadow:0 5px 0 var(--line);border:2px solid var(--line)}
+.pizza{width:min(360px,80vw);aspect-ratio:1;border-radius:50%;margin:auto;position:relative;cursor:pointer;
+ background:radial-gradient(circle at 30% 30%,#e24a2a 0 5%,transparent 6%),radial-gradient(circle at 68% 24%,#e24a2a 0 5%,transparent 6%),radial-gradient(circle at 56% 66%,#e24a2a 0 5%,transparent 6%),radial-gradient(circle at 26% 64%,#e24a2a 0 5%,transparent 6%),radial-gradient(circle at 78% 58%,#e24a2a 0 5%,transparent 6%),radial-gradient(circle at 46% 42%,#3f8f3a 0 3%,transparent 4%),radial-gradient(circle at 40% 80%,#3f8f3a 0 3%,transparent 4%),radial-gradient(circle,#ffd45e 0 58%,#e63a1f 59% 72%,#d89a4a 73%);
+ box-shadow:0 0 0 10px #c98a3d,0 24px 40px -10px rgba(0,0,0,.45);animation:spin 28s linear infinite;transition:transform .5s}
+.pizza::after{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(from 0deg,transparent 0 44deg,rgba(80,30,10,.55) 44deg 45deg)}
+.pizza:hover{animation-play-state:paused;transform:scale(1.05)}
+@keyframes spin{to{rotate:360deg}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:48px}
+.facts div{background:var(--card);border:2px dashed var(--line);border-radius:18px;padding:14px 18px}
+.facts strong{display:block;font:400 22px 'Alfa Slab One',serif;color:var(--red)}
+.facts span{color:var(--mute);font-size:14px}
+.tabs{position:sticky;top:calc(62px + env(safe-area-inset-top,0px));z-index:10;background:var(--bg);padding:10px 0;display:flex;gap:8px;overflow-x:auto}
+.tab{background:var(--card);border:2px solid var(--line);border-radius:99px;padding:8px 18px;font-weight:800;white-space:nowrap}
+.tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sizes{display:flex;gap:8px;align-items:center;margin:14px 0;flex-wrap:wrap;font-weight:800}
+.sz{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:6px 14px;font-weight:800}
+.sz.on{background:var(--gold);color:#2b1710;border-color:var(--gold)}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:56px}
+.item{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:16px;display:flex;gap:14px;align-items:center;transition:transform .15s,border-color .15s}
+.item:hover{transform:translateY(-3px);border-color:var(--red)}
+.emo{font-size:46px;width:68px;height:68px;border-radius:18px;background:var(--bg);display:grid;place-items:center;flex:none}
+.item h3{font-size:18px}
+.item p{margin:3px 0 0;color:var(--mute);font-size:14px;line-height:1.35}
+.buy{margin-left:auto;text-align:right;flex:none}
+.buy b{display:block;font-size:19px;color:var(--red)}
+.plus{margin-top:6px;background:var(--red);color:#fff;border-radius:10px;width:38px;height:34px;font-weight:800;font-size:20px}
+.build{grid-column:1/-1;background:var(--card);border:2px solid var(--line);border-radius:22px;padding:22px}.build p{color:var(--mute);margin:6px 0 14px}.opts{display:flex;flex-wrap:wrap;gap:8px}.sum{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:2px dashed var(--line)}.sum span{flex:1;min-width:200px}.sum .pr{font-size:22px;color:var(--red)}.btn[disabled]{opacity:.45;pointer-events:none}
+.produto{background:var(--card);border:2px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .15s,border-color .15s}
+.produto:hover{transform:translateY(-4px);border-color:var(--red)}
+.produto img,.produto .emo{display:grid;place-items:center;width:100%;height:170px;object-fit:cover;border-radius:0;background:var(--bg);font-size:72px}
+.produto-info{padding:14px 16px 8px;flex:1}
+.produto-info h3{font-size:19px}
+.produto-info p{margin:4px 0 0;color:var(--mute);font-size:14px;line-height:1.35}
+.produto-info strong{display:block;color:var(--red);font-size:19px;margin-top:8px}
+.produto-info small{color:var(--mute);font-weight:600}
+.produto .plus{margin:0 16px 16px;width:auto;height:auto;padding:10px;border-radius:12px;font-size:16px}
+.promo{background:var(--red);color:#fff;border-radius:26px;padding:28px;margin-bottom:56px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.promo h2{font-size:clamp(24px,4vw,34px);flex:1;min-width:240px}
+footer{background:var(--ink);color:var(--bg);padding:40px 0 34px}
+footer p{margin:6px 0;opacity:.88}
+footer a{color:var(--gold);font-weight:800}
+.shade{position:fixed;inset:0;background:rgba(15,5,2,.55);z-index:30;opacity:0;pointer-events:none;transition:.25s}
+.shade.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--card);z-index:40;transform:translateX(105%);transition:transform .3s;display:flex;flex-direction:column;padding:calc(18px + env(safe-area-inset-top,0px)) 18px calc(18px + env(safe-area-inset-bottom,0px))}
+.drawer.on{transform:none}
+.lines{flex:1;overflow:auto;margin:14px 0}
+.ln{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.ln div{flex:1;line-height:1.3;font-weight:600}
+.ln small{display:block;color:var(--mute);font-weight:400}
+.q button{background:var(--bg);border-radius:99px;width:28px;height:28px;font-weight:800}
+.q span{display:inline-block;min-width:22px;text-align:center}
+.tot{display:flex;justify-content:space-between;font:400 22px 'Alfa Slab One',serif;margin-bottom:10px}
+.drawer input{width:100%;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:99px;z-index:50;transition:transform .3s;font-weight:800}
+.toast.on{transform:translate(-50%,0)}
+@media (max-width:760px){.hero{grid-template-columns:1fr;padding-top:28px}.pizza{order:-1;width:min(240px,70vw)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <a class="logo" href="#">Ma-Q Pizza</a>
+  <a class="pill" href="tel:+5511999921961">Ligar</a>
+  <button class="pill" id="cartBtn" aria-label="Abrir pedido">Meu pedido<b id="count">0</b></button>
+</div></header>
+
+<section class="wrap hero">
+  <div>
+    <span class="seal">Desde 1987</span>
+    <h1>A pizza que a Granja Julieta ama.</h1>
+    <p>Massa feita na hora, forno quente e entrega rápida. Monte seu pedido aqui e finalize pelo WhatsApp.</p>
+    <div class="cta"><a class="btn" href="#cardapio">Ver cardápio</a><button class="btn alt" id="surprise">Me surpreenda 🍕</button></div>
+  </div>
+  <div class="pizza" id="pizza" role="img" aria-label="Pizza girando"></div>
+</section>
+
+<main class="wrap">
+  <div class="facts">
+    <div><strong>+35 anos</strong><span>de tradição na região</span></div>
+    <div><strong>Delivery</strong><span>pedido direto, sem taxa de app</span></div>
+    <div><strong>WhatsApp</strong><span>(11) 9-9992-1961</span></div>
+  </div>
+
+  <h2 id="cardapio" style="font-size:clamp(28px,5vw,42px)">Cardápio</h2>
+  <div class="tabs" id="tabs"></div>
+  <div class="sizes" id="sizes"><span>Tamanho:</span></div>
+  <div class="cardapio menu" id="menu"></div>
+
+  <div class="promo"><h2>Bateu a fome? Peça agora e acompanhe pelo WhatsApp.</h2><a class="btn alt" href="https://api.whatsapp.com/send?phone=5511999921961" target="_blank" rel="noopener">Chamar no WhatsApp</a></div>
+</main>
+
+<footer><div class="wrap">
+  <h2 style="font-size:28px;margin-bottom:8px">Ma-Q Pizza</h2>
+  <p>R. Armando Barroso, 42 · Granja Julieta · São Paulo, SP · CEP 04722-040</p>
+  <p>Delivery e pedidos: <a href="tel:+5511999921961">(11) 9-9992-1961</a> · <a href="https://facebook.com/maqpizzas" target="_blank" rel="noopener">Facebook</a></p>
+</div></footer>
+
+<div class="shade" id="shade"></div>
+<aside class="drawer" id="drawer" aria-label="Meu pedido">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="font-size:26px">Meu pedido</h2><button class="pill" style="border:2px solid var(--line)" id="closeCart">Fechar</button></div>
+  <div class="lines" id="lines"></div>
+  <input id="addr" placeholder="Endereço de entrega (rua, número, bairro)" aria-label="Endereço de entrega">
+  <div class="tot"><span>Total</span><span id="total">R$ 0,00</span></div>
+  <button class="btn" id="send">Enviar pelo WhatsApp</button>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ============ EDITE AQUI O CARDÁPIO ============
+   Valores, sabores, combos e promoções de EXEMPLO. Troque pelos reais da pizzaria.
+   p = preço "a partir de" (menor tamanho, em reais). Grande e Gigante são calculados abaixo.
+   img = endereço da foto. Ex.: img:'imagens/mussarela.jpg' (pasta do repositório) ou um link https://...
+   Sem img (ou se a foto não abrir), aparece o emoji. */
+const SIZES={Média:1,Grande:1.25,Gigante:1.6};
+const MENU=[
+{c:'Tradicionais',n:'Mussarela',d:'Molho de Tomate Natural, Mussarela, Orégano, Azeitona',p:50,e:'🧀',img:''},
+{c:'Tradicionais',n:'Calabresa',d:'Calabresa fatiada e cebola',p:52,e:'🌶️'},
+{c:'Tradicionais',n:'Portuguesa',d:'Presunto, ovo, cebola, ervilha e azeitona',p:58,e:'🥚'},
+{c:'Tradicionais',n:'Marguerita',d:'Mussarela, tomate fresco e manjericão',p:54,e:'🌿'},
+{c:'Tradicionais',n:'Napolitana',d:'Mussarela, tomate, parmesão e orégano',p:54,e:'🍅'},
+{c:'Especiais',n:'Frango com Catupiry',d:'Frango desfiado e catupiry cremoso',p:62,e:'🍗'},
+{c:'Especiais',n:'Quatro Queijos',d:'Mussarela, provolone, parmesão e catupiry',p:64,e:'🧀'},
+{c:'Especiais',n:'Bacon',d:'Mussarela, bacon crocante e cebola',p:62,e:'🥓'},
+{c:'Especiais',n:'Lombinho',d:'Lombo canadense e catupiry',p:64,e:'🍖'},
+{c:'Doces',n:'Chocolate',d:'Chocolate ao leite derretido',p:56,e:'🍫'},
+{c:'Doces',n:'Romeu e Julieta',d:'Mussarela e goiabada',p:56,e:'💘'},
+{c:'Doces',n:'Banana com Canela',d:'Banana, açúcar e canela',p:54,e:'🍌'},
+{c:'Combos',n:'Combo 3 em 1',d:'Exemplo: pizza grande + refrigerante 2L + doce',p:89,e:'🎁',fixed:1},
+{c:'Combos',n:'Combo Família',d:'Exemplo: 2 pizzas grandes + refrigerante 2L',p:129,e:'👨‍👩‍👧‍👦',fixed:1},
+{c:'Combos',n:'Combo Love',d:'Exemplo: pizza média + doce + 2 bebidas',p:69,e:'💘',fixed:1},
+{c:'Promoções',n:'Promoção da semana',d:'Exemplo: escreva aqui a promoção do momento',p:39,e:'🔥',fixed:1},
+{c:'Bebidas',n:'Refrigerante 2L',d:'Coca-Cola, Guaraná ou Fanta',p:14,e:'🥤',fixed:1},
+{c:'Bebidas',n:'Suco 1L',d:'Sabores do dia',p:12,e:'🍊',fixed:1},
+{c:'Bebidas',n:'Água 500ml',d:'Com ou sem gás',p:5,e:'💧',fixed:1}
+];
+const foto=x=>x.img?`<img src="${x.img}" alt="${x.n}" loading="lazy" data-e="${x.e}" onerror="semFoto(this)">`:`<div class="emo">${x.e}</div>`;
+function semFoto(i){const d=document.createElement('div');d.className='emo';d.textContent=i.dataset.e;i.replaceWith(d)}
+const $=id=>document.getElementById(id);
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+const price=(x,s)=>x.fixed?x.p:Math.round(x.p*SIZES[s]);
+const cats=['Monte a sua','Tradicionais','Especiais','Doces','Combos','Promoções','Bebidas'];
+const FIXOS=['Combos','Promoções','Bebidas'];
+let cat='Tradicionais',size='Grande',cart={},mix=[];
+const toast=m=>{const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove('on'),1700)};
+
+function draw(){
+  $('tabs').innerHTML=cats.map(c=>`<button class="tab ${c===cat?'on':''}" data-c="${c}">${c}</button>`).join('');
+  $('sizes').style.display=FIXOS.includes(cat)?'none':'flex';
+  $('sizes').innerHTML='<span>Tamanho:</span>'+Object.keys(SIZES).map(s=>`<button class="sz ${s===size?'on':''}" data-s="${s}">${s}</button>`).join('');
+  if(cat==='Monte a sua'){
+    const op=MENU.map((x,i)=>({x,i})).filter(o=>!o.x.fixed);
+    const pr=mix.length?Math.max(...mix.map(i=>price(MENU[i],size))):0;
+    $('menu').innerHTML=`<div class="build"><h3>Monte a sua pizza</h3><p>Escolha até 2 sabores (meio a meio). Vale o preço do sabor mais caro.</p><div class="opts">${op.map(o=>`<button class="sz ${mix.includes(o.i)?'on':''}" data-f="${o.i}">${o.x.e} ${o.x.n}</button>`).join('')}</div><div class="sum"><span>${mix.length?'Sua pizza ('+size+'): <b>'+mix.map(i=>MENU[i].n).join(' + ')+'</b>':'Escolha seus sabores'}</span><b class="pr">${mix.length?brl(pr):''}</b><button class="btn" data-add2="1" ${mix.length?'':'disabled'}>Adicionar ao pedido</button></div></div>`;
+    return;
+  }
+  $('menu').innerHTML=MENU.map((x,i)=>({x,i})).filter(o=>o.x.c===cat).map(({x,i})=>`<article class="produto">${foto(x)}<div class="produto-info"><h3>${x.n}</h3><p>${x.d}</p><strong>${x.fixed?brl(x.p):'A partir de '+brl(x.p)}</strong>${x.fixed||size===Object.keys(SIZES)[0]?'':`<small>${size}: ${brl(price(x,size))}</small>`}</div><button class="plus" data-a="${i}" aria-label="Adicionar ${x.n}">+ Adicionar</button></article>`).join('');
+}
+function drawCart(){
+  const ks=Object.keys(cart);let sum=0,n=0;
+  $('lines').innerHTML=ks.length?ks.map(k=>{const [i,s]=k.split('|'),x=MENU[i],q=cart[k],v=price(x,s);sum+=v*q;n+=q;return `<div class="ln"><span style="font-size:30px">${x.e}</span><div>${x.n}<small>${x.fixed?'':s+' · '}${brl(v)}</small></div><span class="q"><button data-m="${k}" aria-label="Menos">−</button><span>${q}</span><button data-p="${k}" aria-label="Mais">+</button></span></div>`}).join(''):'<p style="color:var(--mute);text-align:center;padding:30px">Seu pedido está vazio. Escolha uma pizza!</p>';
+  $('total').textContent=brl(sum);$('count').textContent=n;
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('button');if(!t)return;const d=t.dataset;
+  if(d.c){cat=d.c;draw()}
+  if(d.s){size=d.s;draw()}
+  if(d.a){const x=MENU[d.a],k=d.a+'|'+(x.fixed?'-':size);cart[k]=(cart[k]||0)+1;drawCart();toast('Adicionado: '+x.n)}
+  if(d.f){const i=+d.f;mix=mix.includes(i)?mix.filter(v=>v!==i):[...mix,i].slice(-2);draw()}
+  if(d.add2&&mix.length){const nm='Monte a sua ('+size+'): '+mix.map(i=>MENU[i].n).join(' + ');let j=MENU.findIndex(x=>x.n===nm);if(j<0){MENU.push({c:'_',n:nm,d:'',p:Math.max(...mix.map(i=>price(MENU[i],size))),e:'🍕',fixed:1});j=MENU.length-1}
+    cart[j+'|-']=(cart[j+'|-']||0)+1;drawCart();toast('Pizza adicionada ao pedido');mix=[];draw()}
+  if(d.p){cart[d.p]++;drawCart()}
+  if(d.m){if(--cart[d.m]<=0)delete cart[d.m];drawCart()}
+});
+const tog=v=>{$('drawer').classList.toggle('on',v);$('shade').classList.toggle('on',v)};
+$('cartBtn').onclick=()=>tog(true);$('closeCart').onclick=()=>tog(false);$('shade').onclick=()=>tog(false);
+$('surprise').onclick=()=>{const pz=MENU.filter(x=>!x.fixed&&x.c!=='Doces');const i=MENU.indexOf(pz[Math.floor(Math.random()*pz.length)]);cat=MENU[i].c;draw();toast('Que tal uma de '+MENU[i].n+'? 😋');setTimeout(()=>$('menu').scrollIntoView({behavior:'smooth',block:'center'}),150)};
+$('pizza').onclick=()=>$('surprise').click();
+$('send').onclick=()=>{
+  const ks=Object.keys(cart);if(!ks.length)return toast('Escolha algo primeiro');
+  let s=0;const l=ks.map(k=>{const [i,z]=k.split('|'),x=MENU[i];s+=price(x,z)*cart[k];return `${cart[k]}x ${x.n}${x.fixed?'':' ('+z+')'}`});
+  const a=$('addr').value.trim();
+  const msg=`Olá, Ma-Q Pizza! Quero fazer um pedido:\n${l.join('\n')}\nTotal: ${brl(s)}${a?'\nEndereço: '+a:''}`;
+  window.open('https://api.whatsapp.com/send?phone=5511999921961&text='+encodeURIComponent(msg),'_blank');
+};
+draw();drawCart();
+</script>
+</body>
+</html>
